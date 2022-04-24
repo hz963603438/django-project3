@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>pod list</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'home' %}" method="post">
+{% csrf_token %}
+{% for pod in allpod %}
+    <input type="radio" name="pod"  value="{{ pod }}">
+    <label for="huang">{{ pod }}</label> <br /><br />
+{#    <h3>{{ pod }}</h3>#}
+{% endfor %}
+<input type="submit" value="delete">
+</form>
+
+</body>
+</html>
+
+{#{% extends "admin/podlist.html" %}#}
+{#{% load static %}#}
+{##}
+{#{% block script %}#}
+{#    {{ block.super }}#}
+{#    {% for pod in allpod %}#}
+{#    <h3>{{ pod }}</h3>#}
+{#    {% endfor %}#}
+{#{% endblock %}#}
